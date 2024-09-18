@@ -23,3 +23,16 @@ export type User = {
   dob: string;
   created_at: number;
 };
+
+export type Color =
+  | "magenta"
+  | "red"
+  | "volcano"
+  | "orange"
+  | "gold"
+  | "lime"
+  | "green"
+  | "cyan"
+  | "blue"
+  | "geekblue"
+  | "purple";
