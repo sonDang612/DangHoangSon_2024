@@ -1,6 +1,7 @@
 import { Card, Divider, Space, Typography } from "antd";
 import dayjs from "dayjs";
 import React from "react";
+
 import type { Post as PostType } from "../types";
 import ListComments from "./ListComments";
 import ListTags from "./ListTags";

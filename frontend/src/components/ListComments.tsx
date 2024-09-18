@@ -1,5 +1,6 @@
 import { List, Space, Typography } from "antd";
 import React, { Fragment } from "react";
+
 import { comments } from "../constants/data/comments";
 import Comment from "./Comment";
 
@@ -29,7 +30,7 @@ const ListComments = () => {
           <List
             itemLayout="vertical"
             dataSource={comments}
-            renderItem={(comment) => <Comment />}
+            renderItem={(_) => <Comment />}
           />
         </div>
       ) : (

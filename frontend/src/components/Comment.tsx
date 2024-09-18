@@ -1,4 +1,4 @@
-import { Card, Col, Row, Space, Typography } from "antd";
+import { Card, Col, Space, Typography } from "antd";
 
 const { Text, Paragraph } = Typography;
 

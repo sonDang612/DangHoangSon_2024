@@ -1,4 +1,5 @@
 import { Layout, List } from "antd";
+
 import Post from "./components/Post";
 import { posts } from "./constants/data/posts";
 
