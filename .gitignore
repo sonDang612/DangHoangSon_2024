@@ -6,3 +6,6 @@ frontend/node_modules/
 
 # Ignore node_modules ở mọi cấp thư mục (tùy chọn)
 **/node_modules/
+
+frontend/.env
+backend/.env

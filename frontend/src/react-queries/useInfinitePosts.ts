@@ -5,7 +5,7 @@ import axiosInstance from "../utils/axiosInstance";
 import { queryKeys } from "./queryKeys";
 
 const fetchData = async ({ pageParam }: { pageParam: number }) => {
-  const response = await axiosInstance.get(`posts?page=${pageParam}&limit=10`);
+  const response = await axiosInstance.get(`/posts?page=${pageParam}&limit=10`);
   return response.data.data.map((post: Post) => ({ ...post, page: pageParam }));
 };
 
