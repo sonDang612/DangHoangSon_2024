@@ -3,23 +3,28 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   ParseIntPipe,
   Post,
   Put,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { PostsServices } from './posts.service';
 import { PostType } from './post';
 import { CreatePostForm } from './dtos/create-post.form';
+import { UpdatePostForm } from './dtos/update-post.form';
 
 @Controller('posts')
 export class PostsController {
   constructor(private postsService: PostsServices) {}
 
   @Post()
+  @UsePipes(new ValidationPipe())
   create(@Body() createPostDto: CreatePostForm) {
-    let post: PostType;
-    return this.postsService.create(post);
+    return this.postsService.create(createPostDto);
   }
 
   @Get()
@@ -29,17 +34,21 @@ export class PostsController {
 
   @Get(':id')
   find(@Param('id', ParseIntPipe) id: number) {
-    return this.postsService.get(id);
+    return this.postsService.findById(id);
   }
 
-  @Delete()
+  @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   delete(@Param('id', ParseIntPipe) id: number) {
     return this.postsService.delete(id);
   }
 
-  @Put()
-  update(@Param('id', ParseIntPipe) id: number) {
-    let post: PostType;
-    return this.postsService.update(id, post);
+  @Put(':id')
+  @UsePipes(new ValidationPipe())
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updatePostForm: UpdatePostForm,
+  ) {
+    return this.postsService.update(id, updatePostForm);
   }
 }

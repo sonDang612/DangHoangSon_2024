@@ -1,12 +1,6 @@
 import { IsEmail, IsNotEmpty, IsPhoneNumber } from 'class-validator';
 
-export class CreatePostForm {
-  @IsNotEmpty()
+export class UpdatePostForm {
   title: string;
-
-  @IsNotEmpty()
   body: string;
-
-  @IsNotEmpty()
-  userId: number;
 }

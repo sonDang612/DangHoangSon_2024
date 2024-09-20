@@ -3,13 +3,15 @@ import { UserType } from './user';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './user.entity';
 import { Repository } from 'typeorm';
+import { UpdateUserForm } from './dtos/update-user.form';
+import { CreateUserForm } from './dtos/create-user.form';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User) private userRepository: Repository<UserType>,
   ) {}
-  create(user: Partial<UserType>) {
+  create(user: CreateUserForm) {
     const newUser = this.userRepository.create(user);
     return this.userRepository.save(newUser);
   }
@@ -26,7 +28,7 @@ export class UsersService {
     return this.userRepository.find();
   }
 
-  async update(id: number, updateUserForm: Partial<UserType>) {
+  async update(id: number, updateUserForm: UpdateUserForm) {
     const user = await this.userRepository.findOne({ where: { id } });
     if (!user) {
       throw new NotFoundException(`User with ID ${id} not found`);
@@ -39,6 +41,6 @@ export class UsersService {
 
   delete(id: number) {
     this.userRepository.delete(id);
-    return [];
+    return null;
   }
 }

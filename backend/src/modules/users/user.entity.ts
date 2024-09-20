@@ -1,5 +1,4 @@
 import * as bcrypt from 'bcrypt';
-import { Exclude } from 'class-transformer';
 import {
   BeforeInsert,
   BeforeUpdate,
@@ -10,6 +9,7 @@ import {
 } from 'typeorm';
 import { Post } from 'src/modules/posts/post.entity';
 import { PostType } from '../posts/post';
+import { Exclude } from 'class-transformer';
 
 @Entity({ name: 'users' })
 export class User {
@@ -34,8 +34,7 @@ export class User {
   @Column()
   website: string;
 
-  @Column()
-  @Exclude()
+  @Column({ select: false })
   password: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
