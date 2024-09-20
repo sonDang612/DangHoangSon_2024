@@ -1,20 +1,12 @@
-import { Layout, List } from "antd";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import HomePage from "./pages/HomePage";
+const queryClient = new QueryClient();
 
-import Post from "./components/Post";
-import { posts } from "./constants/data/posts";
-
-const { Content } = Layout;
 const App = () => {
   return (
-    <Layout>
-      <Content>
-        <List
-          itemLayout="vertical"
-          dataSource={posts}
-          renderItem={(post) => <Post post={post} />}
-        />
-      </Content>
-    </Layout>
+    <QueryClientProvider client={queryClient}>
+      <HomePage />
+    </QueryClientProvider>
   );
 };
 
