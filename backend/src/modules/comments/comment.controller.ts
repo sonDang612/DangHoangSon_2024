@@ -12,14 +12,14 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { CommentsServices } from './comments.service';
+import { CommentsService } from './comments.service';
 import { CommentType } from './comment';
 import { CreateCommentForm } from './dtos/create-comment.form';
 import { UpdateCommentForm } from './dtos/update-comment.form';
 
 @Controller('comments')
 export class CommentsController {
-  constructor(private commentService: CommentsServices) {}
+  constructor(private commentService: CommentsService) {}
 
   @Post()
   @UsePipes(new ValidationPipe())

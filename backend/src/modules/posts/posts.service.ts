@@ -9,7 +9,7 @@ import { CreatePostForm } from './dtos/create-post.form';
 import { UpdatePostForm } from './dtos/update-post.form';
 
 @Injectable()
-export class PostsServices {
+export class PostsService {
   constructor(
     @InjectRepository(Post) private postRepository: Repository<PostType>,
     @InjectRepository(User) private userRepository: Repository<UserType>,

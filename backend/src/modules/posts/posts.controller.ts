@@ -12,14 +12,14 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { PostsServices } from './posts.service';
+import { PostsService } from './posts.service';
 import { PostType } from './post';
 import { CreatePostForm } from './dtos/create-post.form';
 import { UpdatePostForm } from './dtos/update-post.form';
 
 @Controller('posts')
 export class PostsController {
-  constructor(private postsService: PostsServices) {}
+  constructor(private postsService: PostsService) {}
 
   @Post()
   @UsePipes(new ValidationPipe())
