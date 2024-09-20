@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsPhoneNumber } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 
 export class CreatePostForm {
   @IsNotEmpty()
