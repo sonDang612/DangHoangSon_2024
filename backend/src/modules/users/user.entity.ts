@@ -8,7 +8,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { PostType } from '../posts/post';
+import { PostType } from 'src/modules/posts/post';
 
 @Entity({ name: 'users' })
 export class User {

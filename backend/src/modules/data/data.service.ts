@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import CommentsData from '../../data/comments.json';
-import PostsData from '../../data/posts.json';
-import UsersData from '../../data/users.json';
-import { CommentType } from '../comments/comment';
-import { Comment } from '../comments/comment.entity';
-import { PostType } from '../posts/post';
-import { Post } from '../posts/post.entity';
-import { UserType } from '../users/user';
-import { User } from '../users/user.entity';
+import CommentsData from 'src/data/comments.json';
+import PostsData from 'src/data/posts.json';
+import UsersData from 'src/data/users.json';
+import { CommentType } from 'src/modules/comments/comment';
+import { Comment } from 'src/modules/comments/comment.entity';
+import { PostType } from 'src/modules/posts/post';
+import { Post } from 'src/modules/posts/post.entity';
+import { UserType } from 'src/modules/users/user';
+import { User } from 'src/modules/users/user.entity';
 
 @Injectable()
 export class DataService {

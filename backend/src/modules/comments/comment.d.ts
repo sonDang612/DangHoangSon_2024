@@ -1,5 +1,5 @@
-import { Post } from '../posts/post';
-import { User } from '../users/user';
+import { Post } from 'src/modules/posts/post';
+import { User } from 'src/modules/users/user';
 
 export type CommentType = {
   id: number;

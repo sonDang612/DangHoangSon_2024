@@ -1,7 +1,7 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { envKeys } from './env.key';
-import { globalEntities } from './global-entities';
+import { envKeys } from 'src/utils/env.key';
+import { globalEntities } from 'src/utils/global-entities';
 
 export const globalModules = [
   ConfigModule.forRoot(),
