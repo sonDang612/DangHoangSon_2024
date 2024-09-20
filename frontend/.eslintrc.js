@@ -30,7 +30,7 @@ module.exports = {
       },
     ],
     "no-restricted-syntax": [
-      "warn",
+      "off",
       {
         selector:
           "CallExpression[callee.object.name='console'][callee.property.name=/^(debug|log|time|timeEnd|trace)$/]",
