@@ -28,7 +28,14 @@ const useAddComment = () => {
         [queryKeys.useCommentsByPosts, { postId: form.postId }],
         (old: any) => {
           if (!old) return undefined;
-          return [...old, form];
+          return [
+            {
+              id: form.id,
+              user: { id: form.userId, name: form.name },
+              body: form.body,
+            },
+            ...old,
+          ];
         },
       );
 
@@ -43,9 +50,9 @@ const useAddComment = () => {
         );
       }
     },
-    // onSettled: () => {
-    //   queryClient.invalidateQueries({ queryKey: [queryKeys.useInfinitePosts] });
-    // },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: [queryKeys.useInfinitePosts] });
+    },
   });
 };
 

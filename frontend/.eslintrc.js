@@ -18,6 +18,7 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   rules: {
     "simple-import-sort/imports": "warn",
+    "no-else-return": "off",
     "no-restricted-imports": [
       "error",
       {

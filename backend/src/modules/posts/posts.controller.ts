@@ -9,6 +9,7 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Query,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -28,13 +29,18 @@ export class PostsController {
   }
 
   @Get()
-  findAll() {
-    return this.postsService.getAll();
+  findAll(@Query('page') page: number = 1, @Query('limit') limit: number = 10) {
+    return this.postsService.getAll(page, limit);
   }
 
   @Get(':id')
   find(@Param('id', ParseIntPipe) id: number) {
     return this.postsService.findById(id);
+  }
+
+  @Get(':id/comments')
+  findCommentsByPost(@Param('id', ParseIntPipe) id: number) {
+    return this.postsService.findCommentsByPost(id);
   }
 
   @Delete(':id')

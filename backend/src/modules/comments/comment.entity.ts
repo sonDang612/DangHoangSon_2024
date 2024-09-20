@@ -13,7 +13,7 @@ export class Comment {
   @ManyToOne(() => User, (user) => user.posts)
   user: User;
 
-  @ManyToOne(() => Post, (post) => post.comments)
+  @ManyToOne(() => Post, (post) => post.comments, { onDelete: 'CASCADE' })
   post: Post;
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt: string;

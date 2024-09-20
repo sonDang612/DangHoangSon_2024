@@ -1,7 +1,8 @@
 import { Card, Col, Space, Typography } from "antd";
 
-import { commonAvatar, unknownAvatar } from "../constants";
+import { commonAvatar, unknownAvatar, zigvyAvatar } from "../constants";
 import { Comment as CommentType } from "../types";
+import customRelativeTime from "../utils/formatRelativeTime";
 
 const { Text, Paragraph } = Typography;
 
@@ -19,13 +20,15 @@ const Comment = (props: Props) => {
           height={35}
           className="rounded-full"
           alt="test"
-          src={comment.id == null ? unknownAvatar : commonAvatar}
+          src={comment.user?.id === 11 ? zigvyAvatar : commonAvatar}
         />
         <Col>
           <Space size={[10, 0]} direction="horizontal">
-            <Text className="text-pre-medium opacity-lg">{comment.name}</Text>
+            <Text className="text-pre-medium opacity-lg">
+              {comment.user?.name}
+            </Text>
             <Text className="text-gray-200 text-sm">
-              {comment?.createdAt ?? "a day ago"}
+              {customRelativeTime(`${comment.createdAt}`) ?? "a day ago"}
             </Text>
           </Space>
           <Paragraph className="text-pre-medium text-length-2 my-1">

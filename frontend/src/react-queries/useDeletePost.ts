@@ -47,9 +47,9 @@ const useDeletePost = () => {
         );
       }
     },
-    // onSettled: () => {
-    //   queryClient.invalidateQueries({ queryKey: [queryKeys.useInfinitePosts] });
-    // },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: [queryKeys.useInfinitePosts] });
+    },
   });
 };
 

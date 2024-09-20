@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  InternalServerErrorException,
+  NotFoundException,
+} from '@nestjs/common';
 import { CommentType } from './comment';
 import { CreateCommentForm } from './dtos/create-comment.form';
 import { InjectRepository } from '@nestjs/typeorm';

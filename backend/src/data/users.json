@@ -108,5 +108,16 @@
     "phone": "0354335099",
     "company": "company test",
     "password": "123456"
+  },
+  {
+    "id": 11,
+    "name": "Zigvy Tester",
+    "username": "zigvyTester",
+    "email": "zigvyTester@gmail.com",
+    "website": "https://zigvy.com/",
+    "address": "https://zigvy.com/",
+    "phone": "0123456789",
+    "company": "Zigvy",
+    "password": "123456"
   }
 ]

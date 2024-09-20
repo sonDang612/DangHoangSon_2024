@@ -23,12 +23,11 @@ const ListCommentsByPost = (props: Props) => {
 
   const handleAddComment = () => {
     addComment({
-      userId: undefined,
+      userId: 11,
       postId,
-      email: "zivy@gmail.com",
-      body: "Hello World",
-      name: "zigvy_tester",
-      createdAt: "a second ago",
+      body: "Zigvy Hello World",
+      name: "Zigvy Tester",
+      id: undefined,
     });
   };
 

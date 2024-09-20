@@ -5,17 +5,15 @@ import axiosInstance from "../utils/axiosInstance";
 import { queryKeys } from "./queryKeys";
 
 const fetchData = async ({ pageParam }: { pageParam: number }) => {
-  const response = await axiosInstance.get(
-    `posts?_page=${pageParam}&_per_page=10`,
-  );
-  return response.data.map((post: Post) => ({ ...post, page: pageParam }));
+  const response = await axiosInstance.get(`posts?page=${pageParam}&limit=10`);
+  return response.data.data.map((post: Post) => ({ ...post, page: pageParam }));
 };
 
 const useInfinitePosts = () => {
   return useInfiniteQuery({
     queryKey: [queryKeys.useInfinitePosts],
     queryFn: fetchData,
-    initialPageParam: 0,
+    initialPageParam: 1,
     getNextPageParam: (_, allPages) => {
       return allPages.length;
     },

@@ -8,7 +8,8 @@ export type Post = {
 };
 
 export type Comment = {
-  postId: number;
+  post: Post;
+  user: User;
   id: number;
   name: string;
   email: string;
@@ -27,12 +28,11 @@ export type User = {
 };
 
 export type AddCommentForm = {
+  id?: number;
   postId?: number;
   userId?: number;
-  name: string;
-  email: string;
-  body: string;
-  createdAt?: string;
+  body?: string;
+  name?: string;
 };
 
 export type Color =
