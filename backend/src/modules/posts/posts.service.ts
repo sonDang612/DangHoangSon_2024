@@ -67,7 +67,7 @@ export class PostsService {
       this.postRepository.find({
         skip: skip,
         take: limit,
-        order: { createdAt: 'DESC' },
+        order: { createdAt: 'ASC' },
       }),
       this.postRepository.count(),
     ]);
