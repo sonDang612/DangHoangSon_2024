@@ -12,9 +12,9 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { CommentsService } from 'src/modules/comments/comments.service';
-import { CreateCommentForm } from 'src/modules/comments/dtos/create-comment.form';
-import { UpdateCommentForm } from 'src/modules/comments/dtos/update-comment.form';
+import { CommentsService } from './comments.service';
+import { CreateCommentForm } from './dtos/create-comment.form';
+import { UpdateCommentForm } from './dtos/update-comment.form';
 
 @Controller('comments')
 export class CommentsController {

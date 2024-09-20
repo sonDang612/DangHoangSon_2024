@@ -1,14 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { PostType } from 'src/modules/posts/post';
-import { Post } from 'src/modules/posts/post.entity';
-import { UserType } from 'src/modules/users/user';
-import { User } from 'src/modules/users/user.entity';
-import { CommentType } from 'src/modules/comments/comment';
-import { Comment } from 'src/modules/comments/comment.entity';
-import { CreateCommentForm } from 'src/modules/comments/dtos/create-comment.form';
-import { UpdateCommentForm } from 'src/modules/comments/dtos/update-comment.form';
+import { PostType } from '../posts/post';
+import { Post } from '../posts/post.entity';
+import { UserType } from '../users/user';
+import { User } from '../users/user.entity';
+import { CommentType } from './comment';
+import { Comment } from './comment.entity';
+import { CreateCommentForm } from './dtos/create-comment.form';
+import { UpdateCommentForm } from './dtos/update-comment.form';
 
 @Injectable()
 export class CommentsService {

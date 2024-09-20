@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { CommentsModule } from 'src/modules/comments/comments.module';
-import { PostsModule } from 'src/modules/posts/posts.module';
-import { UsersModule } from 'src/modules/users/users.module';
-import { globalModules } from 'src/utils/global-modules';
-import { DataModule } from 'src/modules/data/data.module';
+import { CommentsModule } from './modules/comments/comments.module';
+import { PostsModule } from './modules/posts/posts.module';
+import { UsersModule } from './modules/users/users.module';
+import { globalModules } from './utils/global-modules';
+import { DataModule } from './modules/data/data.module';
 
 @Module({
   imports: [

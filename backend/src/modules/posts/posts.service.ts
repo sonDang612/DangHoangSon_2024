@@ -1,14 +1,14 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PostType } from 'src/modules/posts/post';
+import { PostType } from './post';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Post } from 'src/modules/posts/post.entity';
+import { Post } from './post.entity';
 import { Repository } from 'typeorm';
-import { User } from 'src/modules/users/user.entity';
-import { UserType } from 'src/modules/users/user';
-import { CreatePostForm } from 'src/modules/posts/dtos/create-post.form';
-import { UpdatePostForm } from 'src/modules/posts/dtos/update-post.form';
-import { Comment } from 'src/modules/comments/comment.entity';
-import { CommentType } from 'src/modules/comments/comment';
+import { User } from '../users/user.entity';
+import { UserType } from '../users/user';
+import { CreatePostForm } from './dtos/create-post.form';
+import { UpdatePostForm } from './dtos/update-post.form';
+import { Comment } from '../comments/comment.entity';
+import { CommentType } from '../comments/comment';
 
 @Injectable()
 export class PostsService {

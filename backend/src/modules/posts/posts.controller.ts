@@ -13,9 +13,9 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreatePostForm } from 'src/modules/posts/dtos/create-post.form';
-import { UpdatePostForm } from 'src/modules/posts/dtos/update-post.form';
-import { PostsService } from 'src/modules/posts/posts.service';
+import { CreatePostForm } from './dtos/create-post.form';
+import { UpdatePostForm } from './dtos/update-post.form';
+import { PostsService } from './posts.service';
 
 @Controller('posts')
 export class PostsController {
