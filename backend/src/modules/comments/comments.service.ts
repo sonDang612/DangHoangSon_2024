@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { Comment } from './comment';
+import { CommentType } from './comment';
 
 @Injectable()
 export class CommentsServices {
-  create(comment: Comment) {
+  create(comment: CommentType) {
     return 'created';
   }
 
@@ -15,7 +15,7 @@ export class CommentsServices {
     return 'All';
   }
 
-  update(id: number, user: Comment) {
+  update(id: number, user: CommentType) {
     return 'updated';
   }
 

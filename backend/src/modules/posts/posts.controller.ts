@@ -9,7 +9,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { PostsServices } from './posts.service';
-import { Post as PostType } from './post';
+import { PostType } from './post';
 import { CreatePostForm } from './dtos/create-post.form';
 
 @Controller('posts')

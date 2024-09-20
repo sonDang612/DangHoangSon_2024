@@ -1,8 +1,3 @@
-export type User = {
-  id: number;
-  username: string;
-  password: string;
-  name: string;
-  dob: string;
-  createdAt: number;
-};
+import { User } from './user.entity';
+
+export type UserType = Omit<User, 'hashPassword'>;

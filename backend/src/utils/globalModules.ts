@@ -1,6 +1,7 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { envKeys } from './env.key';
+import { globalEntities } from './globalEntities';
 
 export const globalModules = [
   ConfigModule.forRoot(),
@@ -13,7 +14,7 @@ export const globalModules = [
       username: configService.get(envKeys.DATABASE_USERNAME),
       password: configService.get(envKeys.DATABASE_PASSWORD),
       database: configService.get(envKeys.DATABASE_NAME),
-      entities: [],
+      entities: globalEntities,
       synchronize: true,
     }),
     inject: [ConfigService],

@@ -9,7 +9,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { User } from './user';
+import { UserType } from './user';
 import { CreateUserForm } from './dtos/create-user.form';
 
 @Controller('users')
@@ -18,7 +18,7 @@ export class UsersController {
 
   @Post()
   create(@Body() createPostDto: CreateUserForm) {
-    let user: User;
+    let user: UserType;
     return this.usersService.create(user);
   }
 
@@ -39,7 +39,7 @@ export class UsersController {
 
   @Put()
   update(@Param('id', ParseIntPipe) id: number) {
-    let user: User;
+    let user: UserType;
     return this.usersService.update(id, user);
   }
 }

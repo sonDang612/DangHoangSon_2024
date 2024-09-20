@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { Post } from './post';
+import { PostType } from './post';
 
 @Injectable()
 export class PostsServices {
-  create(post: Post) {
+  create(post: PostType) {
     return 'created';
   }
 
@@ -15,7 +15,7 @@ export class PostsServices {
     return 'All';
   }
 
-  update(id: number, user: Post) {
+  update(id: number, user: PostType) {
     return 'updated';
   }
 

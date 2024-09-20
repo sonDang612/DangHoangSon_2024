@@ -1,9 +1,6 @@
-import { User } from '../users/user';
+import { User } from '../users/user.entity';
+import { Post } from './post.entity';
 
-export type Post = {
-  id: number;
+export type PostType = Omit<Post, 'user'> & {
   user: User;
-  title: string;
-  content: string;
-  createdAt: number;
 };

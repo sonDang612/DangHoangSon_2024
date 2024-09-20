@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { User } from './user';
+import { UserType } from './user';
 
 @Injectable()
 export class UsersService {
-  create(user: User) {
+  create(user: UserType) {
     return 'created';
   }
 
@@ -15,7 +15,7 @@ export class UsersService {
     return 'All';
   }
 
-  update(id: number, user: User) {
+  update(id: number, user: UserType) {
     return 'updated';
   }
 

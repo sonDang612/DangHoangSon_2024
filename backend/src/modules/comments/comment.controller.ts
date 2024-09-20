@@ -9,7 +9,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { CommentsServices } from './comments.service';
-import { Comment } from './comment';
+import { CommentType } from './comment';
 import { CreateCommentForm } from './dtos/create-comment.form';
 
 @Controller('comments')
@@ -18,7 +18,7 @@ export class CommentsController {
 
   @Post()
   create(@Body() createPostDto: CreateCommentForm) {
-    let comment: Comment;
+    let comment: CommentType;
     return this.commentService.create(comment);
   }
 
@@ -39,7 +39,7 @@ export class CommentsController {
 
   @Put()
   update(@Param('id', ParseIntPipe) id: number) {
-    let post: Comment;
+    let post: CommentType;
     return this.commentService.update(id, post);
   }
 }
