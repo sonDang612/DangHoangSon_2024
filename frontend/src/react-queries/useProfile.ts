@@ -5,7 +5,7 @@ import axiosInstance from "../utils/axiosInstance";
 import { queryKeys } from "./queryKeys";
 
 const fetchData = async ({ id }: { id?: number }) => {
-  const response = await axiosInstance.get(`users/${id}`);
+  const response = await axiosInstance.get(`/users/${id}`);
   return response.data;
 };
 

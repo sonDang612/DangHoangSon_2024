@@ -5,7 +5,7 @@ import axiosInstance from "../utils/axiosInstance";
 import { queryKeys } from "./queryKeys";
 
 const fetchData = async (form: AddCommentForm) => {
-  const response = await axiosInstance.post(`comments`, form);
+  const response = await axiosInstance.post(`/comments`, form);
   return response.data;
 };
 
