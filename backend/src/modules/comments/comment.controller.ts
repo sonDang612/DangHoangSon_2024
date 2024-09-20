@@ -3,23 +3,28 @@ import {
   Controller,
   Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Param,
   ParseIntPipe,
   Post,
   Put,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { CommentsServices } from './comments.service';
 import { CommentType } from './comment';
 import { CreateCommentForm } from './dtos/create-comment.form';
+import { UpdateCommentForm } from './dtos/update-comment.form';
 
 @Controller('comments')
 export class CommentsController {
   constructor(private commentService: CommentsServices) {}
 
   @Post()
-  create(@Body() createPostDto: CreateCommentForm) {
-    let comment: CommentType;
-    return this.commentService.create(comment);
+  @UsePipes(new ValidationPipe())
+  create(@Body() createCommentForm: CreateCommentForm) {
+    return this.commentService.create(createCommentForm);
   }
 
   @Get()
@@ -29,17 +34,21 @@ export class CommentsController {
 
   @Get(':id')
   find(@Param('id', ParseIntPipe) id: number) {
-    return this.commentService.get(id);
+    return this.commentService.findById(id);
   }
 
-  @Delete()
+  @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   delete(@Param('id', ParseIntPipe) id: number) {
     return this.commentService.delete(id);
   }
 
   @Put()
-  update(@Param('id', ParseIntPipe) id: number) {
-    let post: CommentType;
-    return this.commentService.update(id, post);
+  @UsePipes(new ValidationPipe())
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateCommentForm: UpdateCommentForm,
+  ) {
+    return this.commentService.update(id, updateCommentForm);
   }
 }

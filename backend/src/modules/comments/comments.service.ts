@@ -1,25 +1,84 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CommentType } from './comment';
+import { CreateCommentForm } from './dtos/create-comment.form';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Post } from '../posts/post.entity';
+import { User } from '../users/user.entity';
+import { Repository } from 'typeorm';
+import { PostType } from '../posts/post';
+import { UserType } from '../users/user';
+import { Comment } from './comment.entity';
+import { UpdateCommentForm } from './dtos/update-comment.form';
 
 @Injectable()
 export class CommentsServices {
-  create(comment: CommentType) {
-    return 'created';
+  constructor(
+    @InjectRepository(Post) private postRepository: Repository<PostType>,
+    @InjectRepository(User) private userRepository: Repository<UserType>,
+    @InjectRepository(Comment)
+    private commentRepository: Repository<CommentType>,
+  ) {}
+  async create(createCommentForm: CreateCommentForm) {
+    const user = await this.userRepository.findOne({
+      where: { id: createCommentForm.userId },
+    });
+
+    if (!user) {
+      throw new NotFoundException(
+        `User with ID ${createCommentForm.userId} not found`,
+      );
+    }
+
+    const post = await this.postRepository.findOne({
+      where: { id: createCommentForm.postId },
+    });
+
+    if (!post) {
+      throw new NotFoundException(
+        `Post with ID ${createCommentForm.postId} not found`,
+      );
+    }
+
+    const newComment = this.commentRepository.create({
+      ...createCommentForm,
+      user: user,
+      post: post,
+    });
+
+    return this.commentRepository.save(newComment);
   }
 
-  get(id: number) {
-    return 'id';
+  async findById(id: number) {
+    const comment = await this.commentRepository.findOne({
+      where: { id },
+      relations: ['user', 'post'],
+    });
+    if (!comment) {
+      throw new NotFoundException(`Comment with ID ${id} not found`);
+    }
+    return comment;
   }
 
   getAll() {
-    return 'All';
+    return this.commentRepository.find({ relations: ['user', 'post'] });
   }
 
-  update(id: number, user: CommentType) {
-    return 'updated';
+  async update(id: number, updateCommentForm: UpdateCommentForm) {
+    const comment = await this.commentRepository.findOne({
+      where: { id },
+      relations: ['user', 'post'],
+    });
+    if (!comment) {
+      throw new NotFoundException(`Comment with ID ${id} not found`);
+    }
+
+    Object.assign(comment, updateCommentForm);
+
+    return this.commentRepository.save(comment);
   }
 
   delete(id: number) {
-    return 'deleted';
+    this.commentRepository.delete(id);
+    return null;
   }
 }
