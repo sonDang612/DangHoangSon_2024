@@ -1,17 +1,13 @@
-import {
-  Injectable,
-  InternalServerErrorException,
-  NotFoundException,
-} from '@nestjs/common';
-import { CommentType } from './comment';
-import { CreateCommentForm } from './dtos/create-comment.form';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Post } from '../posts/post.entity';
-import { User } from '../users/user.entity';
 import { Repository } from 'typeorm';
 import { PostType } from '../posts/post';
+import { Post } from '../posts/post.entity';
 import { UserType } from '../users/user';
+import { User } from '../users/user.entity';
+import { CommentType } from './comment';
 import { Comment } from './comment.entity';
+import { CreateCommentForm } from './dtos/create-comment.form';
 import { UpdateCommentForm } from './dtos/update-comment.form';
 
 @Injectable()

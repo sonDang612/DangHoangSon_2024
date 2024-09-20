@@ -13,7 +13,6 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { CommentsService } from './comments.service';
-import { CommentType } from './comment';
 import { CreateCommentForm } from './dtos/create-comment.form';
 import { UpdateCommentForm } from './dtos/update-comment.form';
 

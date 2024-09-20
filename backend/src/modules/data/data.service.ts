@@ -1,15 +1,15 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from '../users/user.entity';
-import { Post } from '../posts/post.entity';
-import { Comment } from '../comments/comment.entity';
-import { PostType } from '../posts/post';
-import { UserType } from '../users/user';
-import { CommentType } from '../comments/comment';
 import CommentsData from '../../data/comments.json';
 import PostsData from '../../data/posts.json';
 import UsersData from '../../data/users.json';
+import { CommentType } from '../comments/comment';
+import { Comment } from '../comments/comment.entity';
+import { PostType } from '../posts/post';
+import { Post } from '../posts/post.entity';
+import { UserType } from '../users/user';
+import { User } from '../users/user.entity';
 
 @Injectable()
 export class DataService {

@@ -1,4 +1,5 @@
 import * as bcrypt from 'bcrypt';
+import { Post } from 'src/modules/posts/post.entity';
 import {
   BeforeInsert,
   BeforeUpdate,
@@ -7,9 +8,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Post } from 'src/modules/posts/post.entity';
 import { PostType } from '../posts/post';
-import { Exclude } from 'class-transformer';
 
 @Entity({ name: 'users' })
 export class User {

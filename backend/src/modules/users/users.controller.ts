@@ -4,7 +4,6 @@ import {
   Delete,
   Get,
   HttpCode,
-  HttpException,
   HttpStatus,
   Param,
   ParseIntPipe,
@@ -13,10 +12,9 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { UserType } from './user';
 import { CreateUserForm } from './dtos/create-user.form';
 import { UpdateUserForm } from './dtos/update-user.form';
+import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
