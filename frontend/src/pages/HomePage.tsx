@@ -18,7 +18,6 @@ const HomePage = () => {
   const posts = React.useMemo(() => {
     return postsPages?.pages?.map((page) => page || []).flat();
   }, [postsPages?.pages]);
-  console.log(posts?.length);
   return (
     <Layout>
       <Content>
