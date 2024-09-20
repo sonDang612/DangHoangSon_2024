@@ -6,8 +6,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, { bodyParser: true });
   app.useGlobalFilters(new GlobalExceptionFilter());
   app.enableCors({
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    origin: '*', // Hoặc địa chỉ cụ thể của frontend
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type, Accept, Authorization',
+    credentials: true,
     preflightContinue: false,
     optionsSuccessStatus: 204,
   });
