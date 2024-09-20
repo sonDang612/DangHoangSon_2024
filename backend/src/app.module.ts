@@ -7,9 +7,10 @@ import { PostsServices } from './modules/posts/posts.service';
 import { UsersController } from './modules/users/users.controller';
 import { UsersModule } from './modules/users/users.module';
 import { UsersService } from './modules/users/users.service';
+import { globalModules } from './utils/globalModules';
 
 @Module({
-  imports: [UsersModule, PostsModule, CommentsModule],
+  imports: [...globalModules, UsersModule, PostsModule, CommentsModule],
   controllers: [UsersController, PostsController, CommentsController],
   providers: [UsersService, PostsServices, CommentsController],
 })
