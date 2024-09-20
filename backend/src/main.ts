@@ -6,7 +6,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, { bodyParser: true });
   app.use(
     cors({
-      origin: 'https://dang-hoang-son-2024-46gc.vercel.app',
+      origin: [
+        'https://dang-hoang-son-2024-46gc.vercel.app',
+        'https://dang-hoang-son-2024-46gc.vercel.app/',
+      ],
       methods: ['POST', 'GET', 'PUT', 'DELETE'],
     }),
   );
