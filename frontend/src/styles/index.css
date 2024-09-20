@@ -169,3 +169,11 @@
 .justify-between {
   justify-content: space-between;
 }
+
+.text-red {
+  color: red;
+}
+
+.text-blue {
+  color: blue;
+}

@@ -1,27 +1,38 @@
 export type Post = {
   id: number;
-  owner: number;
+  userId: number;
   title: string;
-  content: string;
+  body: string;
   created_at: number;
-  tags: string[];
+  page: number;
 };
 
 export type Comment = {
+  postId: number;
   id: number;
-  owner: number;
-  post: number;
-  content: string;
-  created_at: number;
+  name: string;
+  email: string;
+  body: string;
+  createdAt?: string;
 };
-
 export type User = {
   id: number;
-  username: string;
-  password: string;
   name: string;
-  dob: string;
-  created_at: number;
+  username: string;
+  email: string;
+  address: any;
+  phone: string;
+  website: string;
+  company: any;
+};
+
+export type AddCommentForm = {
+  postId?: number;
+  userId?: number;
+  name: string;
+  email: string;
+  body: string;
+  createdAt?: string;
 };
 
 export type Color =
