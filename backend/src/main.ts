@@ -5,7 +5,10 @@ import { GlobalExceptionFilter } from './utils/global-exceptions-filter';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalFilters(new GlobalExceptionFilter());
-  const whitelist = ['https://dang-hoang-son-2024-46gc.vercel.app'];
+  const whitelist = [
+    'https://dang-hoang-son-2024-46gc.vercel.app',
+    'http://localhost:3000/',
+  ];
 
   app.enableCors({
     origin: function (origin, callback) {
@@ -17,10 +20,7 @@ async function bootstrap() {
         callback(new Error('Not allowed by CORS'));
       }
     },
-    allowedHeaders:
-      'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe',
     methods: 'GET,PUT,POST,DELETE,UPDATE,OPTIONS',
-    credentials: true,
   });
 
   await app.listen(5000);
