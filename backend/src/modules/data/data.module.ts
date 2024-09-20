@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { globalEntities } from 'src/utils/global-entities';
+import { globalEntities } from '../../utils/global-entities';
 import { DataService } from './data.service';
 import { DataController } from './data.controller';
 

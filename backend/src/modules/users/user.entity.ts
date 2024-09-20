@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcrypt';
-import { Post } from 'src/modules/posts/post.entity';
+import { Post } from '../../modules/posts/post.entity';
 import {
   BeforeInsert,
   BeforeUpdate,
