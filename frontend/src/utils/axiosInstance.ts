@@ -6,9 +6,6 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   function (config: any) {
-    config.headers = {
-      authorization: `Bear`,
-    };
     return config;
   },
   function (error) {
